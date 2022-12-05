@@ -1,0 +1,5 @@
+from .EnvironmentClassifier import testEnvironmentModel
+from .FloorClassifierIndoor import testInsideFloorModel
+from .FloorClassifierOutdoor import testOutsideFloorModel
+from .TerrainClassifierOutdoor import testClassifyOutdoorModel
+from .TerrainClassifierIndoor import testClassifyIndoorModel

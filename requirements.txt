@@ -1,0 +1,8 @@
+flask
+flask_cors
+youtube_dl
+opencv-python
+pafy
+tensorflow
+matplotlib
+scikit-image

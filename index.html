@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Terrain Classifier</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="stylesheet.css" rel="stylesheet" />
+        <script src="site.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <img src="images/logo.png" alt="logo" />
+        </header>
+        <div class="page_content">
+            <div style="display: none; height: 70%;" id="loading_banner" class="banner">
+                <img src="images/loading.gif" alt="loading" />
+                <h1 id="loading_text"></h1>
+            </div>
+            <div style="display: none;" id="video_banner" class="banner">
+                <div class="video_container" style="position: relative;">
+                    <video src="uploads/916BelleforteAveOakParkIL60302.mp4" id="video_player" height="80%" width="100%"></video>
+                    <div id="play_button" onclick="beginVideo()" style="width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); position: absolute; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                        <img  src="https://icon-library.com/images/play-icon-transparent-background/play-icon-transparent-background-22.jpg" />
+                    </div>
+                </div>
+                <div class="sliders" id="slider_container">
+                    <div class="result_box" id="result_box_outdoor" style="opacity: 0.3;">
+                        <h1>Outdoor</h1>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="asphalt_box">
+                            <img src="https://ichef.bbci.co.uk/news/1024/media/images/68737000/jpg/_68737146_135380604.jpg" />
+                            <h1>Asphalt</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="concrete_box">
+                            <img src="https://previews.123rf.com/images/torsakarin/torsakarin1506/torsakarin150600444/41558047-outdoor-concrete-block-floor-background-and-texture.jpg" alt="Gravel" />
+                            <h1>Concrete Block</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="grass_box">
+                            <img src="https://www.scotts.com/sites/g/files/oydgjc106/files/styles/scotts_asset_image_720_440/public/asset_images/photo_14598%20%281%29.jpg?itok=FmwtvQgo" alt="Gravel" />
+                            <h1>Grass</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="gravel_box">
+                            <img src="https://www.northwestaggregates.com/ekmps/shops/seandurkin/images/trent-gravel-20mm-bulk-bag-531-1-p.jpg" alt="Gravel" />
+                            <h1>Gravel</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="sand_box">
+                            <img src="https://www.investopedia.com/thmb/QrNng3JohpE44Q7PdUASd1UbBeM=/2119x1415/filters:fill(auto,1)/sand-texture-in-the-beach-917396446-a71407b27e164c53a7bf0a89510074d4.jpg" alt="Gravel" />
+                            <h1>Sand</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="snow_box">
+                            <img src="https://assets.climatecentral.org/images/made/2020Snow-report-cover-image_1000_664_s_c1_c_c.jpg" alt="Gravel" />
+                            <h1>Snow</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="woodland_box">
+                            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/autumn-woodland-floor-leaves-sunshine-and-shadows-richard-griffin.jpg" alt="Gravel" />
+                            <h1>Woodland</h1>
+                        </div>
+                    </div>
+                    <div class="result_box" id="result_box_indoor" style="opacity: 0.3;">
+                        <h1>Indoor</h1>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="wood_box">
+                            <img src="https://www.junckershardwood.com/admin/public/getimage.ashx?Image=/Files/Images/WOODEN-FLOORING/2-STRIP-WOODEN-FLOORING/GRADINGS/ASH/Junckers-Grading-Ash-Harmony.jpg&Width=450&Height=0&Format=jpg&Quality=75&Crop=5" alt="Gravel" />
+                            <h1>Wood</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="carpet_box">
+                            <img src="https://www.scs.co.uk/dw/image/v2/AARC_PRD/on/demandware.static/-/Sites-master-catalog-scs/default/dwd7da4ec5/images/large/large_L019565_1.jpg?sw=419&sh=262&sfrm=jpg" alt="Gravel" />
+                            <h1>Carpet</h1>
+                        </div>
+                        <div style="opacity: 0.3;" class="result_box_terrain" id="tile_box">
+                            <img src="https://www.tiletown.co.uk/content/images/thumbs/0003357_borgogna-stone-black-modular_580.jpeg" alt="Gravel" />
+                            <h1>Tiles</h1>
+                        </div>
+                    </div>
+                    <div class="result_box" id="result_box_stairs" style="opacity: 0.3;">
+                        <h1>Stairs</h1>
+                        <div style="opacity: 0.3;" class="result_box_terrain">
+                            <img src="https://cdn.vox-cdn.com/thumbor/F0qr-a5Wc-dHetzcloMSOw-sGYw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21693783/iStock_1047941552.jpg" alt="Gravel" />
+                            <h1>Stairs</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="youtube_banner" id="youtube_banner">
+                <h1>Enter a YouTube link to get started</h1>
+                <input id="link_box" type="text" placeholder="enter link here..." />
+                <button onclick="downloadYoutube()" id="submit_button">Go!</button>
+            </div>
+        </div>
+        <div class="cover" style="background-color: black; position: absolute; height: 100%; width: 100%; align-items: center; justify-content: center;"><h1 style="color: white; font-family: Arial, Helvetica, sans-serif;">Sorry this app is not suitable for smaller screens (1920 x 1080 preferred)</h1></div>
+    </body>
+</html>

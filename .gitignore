@@ -1,0 +1,8 @@
+__pycache__/
+.vscode/
+dataset/
+Environment_Weights.h5
+FloorVisible_Outdoor_Weights.h5
+FloorVisible_Indoor_Weights.h5
+Terrain_Indoor_Weights.h5
+Terrain_Outdoor_Weights.h5
